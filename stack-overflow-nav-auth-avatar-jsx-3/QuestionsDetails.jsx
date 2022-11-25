@@ -1,7 +1,8 @@
 import React from "react";
-import {useParams} from "react-router-dom";
+import {useParams,Link,useNavigate} from "react-router-dom";
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbDownAltIcon from '@mui/icons-material/ThumbDownAlt';
+import Avatar from "./src/Avatar/Avatar"
 import "./Question.css";
 const QuestionsDetails = () => {
   const id = useParams()
@@ -90,11 +91,31 @@ const QuestionsDetails = () => {
                          user?.result?.id === question?.userId && (0
                            <button type = "button" onClick = {handleDelete}>Delete</button>
                          )
+                         <p>asked {question.askedOn} </p>
+                         <Link to = '' className = "user-link" style={{color:'#0086d8'}}></Link>
+                         <Avatar  backgroundColor="orange" px='8px' py='5px' borderRadius="4px">{question.userPosted.charAt(0).toUpperCase()}</Avatar>
+                         <div>
+                           {question.userPosted}
+
+
+
+                         </div>
                          </div>
                          </div>
                         
                    </div>
                    </section>
+                   {
+                     question.noOfAnswers !== 0 && (
+                       <section>
+                         <h3>{question.noOfAnswers} Answers</h3>
+                       </section>
+                     
+
+                     )
+
+
+                   }
 
                </div>
              ))
@@ -107,5 +128,5 @@ const QuestionsDetails = () => {
        </div>
             
      );
-};
+}
 export default QuestionsDetails;
