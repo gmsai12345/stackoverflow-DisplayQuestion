@@ -72,7 +72,28 @@ const QuestionsDetails = () => {
                      <img src = "ThumbUpIcon" alt = "" width = "18"/>
                      <p>{question.upVotes - question.downVotes}</p>
                      <img src = "ThumbDownAltIcon" alt = "" width = "18"/>
-                   <p className = "question-body"></p>
+                   
+                   <p className = "question-body">{question.questionBody()}</p>
+                   <div className = "question-detail-tags">
+                     {
+                   question.questionTags.map((tags) => (
+                     <p key = "tag">{tag}</p>
+                   
+                   ))
+                   
+                     }
+                     <div className = "questin-actions-user">
+                       <div>
+                         {
+                         <button type = "button" onclick = {handleShare}>Share</button>
+                         }
+                         user?.result?.id === question?.userId && (0
+                           <button type = "button" onClick = {handleDelete}>Delete</button>
+                         )
+                         </div>
+                         </div>
+                        
+                   </div>
                    </section>
 
                </div>
